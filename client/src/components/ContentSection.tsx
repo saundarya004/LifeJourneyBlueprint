@@ -36,28 +36,43 @@ export function ContentSection() {
   ];
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-16">
       {sections.map((section, index) => (
         <motion.div
           key={section.title}
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: index * 0.2 }}
+          transition={{ 
+            delay: index * 0.2,
+            duration: 0.5,
+            type: "spring",
+            stiffness: 100 
+          }}
         >
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                {section.icon}
+          <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+            <CardHeader className="space-y-4">
+              <CardTitle className="flex items-center gap-3 text-2xl">
+                <motion.div
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.5 }}
+                  className="p-2 rounded-full bg-primary/10 text-primary"
+                >
+                  {section.icon}
+                </motion.div>
                 {section.title}
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="text-muted-foreground">{section.content}</div>
-              <AspectRatio ratio={16 / 9} className="overflow-hidden rounded-lg">
-                <img
+            <CardContent className="space-y-6">
+              <div className="text-lg text-muted-foreground leading-relaxed">
+                {section.content}
+              </div>
+              <AspectRatio ratio={16 / 9} className="overflow-hidden rounded-lg bg-muted">
+                <motion.img
                   src={section.image}
                   alt={section.title}
                   className="w-full h-full object-cover"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
                 />
               </AspectRatio>
             </CardContent>
