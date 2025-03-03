@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Code, Heart, Music, Dumbbell } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { StoryCarousel } from "./StoryCarousel";
+import { AchievementBadges } from "./AchievementBadges";
 
 export function ContentSection() {
   const sections = [
@@ -12,7 +12,7 @@ export function ContentSection() {
       icon: <Code className="h-6 w-6" />,
       content: "Senior Software Engineer specializing in Java, Python, AI models, and Low-Level Design (LLD). Currently pursuing Masters in Information Systems at University of Washington.",
       image: "/attached_assets/A_dynamic_female_Senior_Software_Engineer_with_sho.png",
-      extraContent: <StoryCarousel />,
+      extraContent: <AchievementBadges />,
     },
     {
       title: "Personal Interests",
