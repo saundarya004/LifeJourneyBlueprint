@@ -57,7 +57,7 @@ export function InteractiveTimeline() {
       <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
         Professional Journey
       </h2>
-      <div className="relative max-w-4xl mx-auto">
+      <div className="relative max-w-4xl mx-auto mt-16">
         {/* Center line */}
         <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-primary/20 via-primary/50 to-primary/20" />
 
