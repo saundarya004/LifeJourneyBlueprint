@@ -66,11 +66,11 @@ export function ContentSection() {
               <div className="text-lg text-muted-foreground leading-relaxed">
                 {section.content}
               </div>
-              <AspectRatio ratio={16 / 9} className="overflow-hidden rounded-lg bg-muted">
+              <AspectRatio ratio={4/3} className="overflow-hidden rounded-lg bg-muted">
                 <motion.img
                   src={section.image}
                   alt={section.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 />
