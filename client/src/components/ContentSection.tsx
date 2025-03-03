@@ -4,6 +4,7 @@ import { Separator } from "@/components/ui/separator";
 import { Code, Heart, Music, Dumbbell } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { AchievementBadges } from "./AchievementBadges";
+import { InteractiveTimeline } from "./InteractiveTimeline";
 
 export function ContentSection() {
   const sections = [
@@ -88,6 +89,14 @@ export function ContentSection() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: sections.length * 0.2 }}
+      >
+        <InteractiveTimeline />
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: (sections.length + 1) * 0.2 }}
       >
         <AchievementBadges />
       </motion.div>
