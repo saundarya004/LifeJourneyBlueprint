@@ -11,11 +11,15 @@ build = ["npm", "run", "build"]
 run = ["npm", "run", "start"]
 
 [[ports]]
+localPort = 3000
+externalPort = 3000
+
+[[ports]]
 localPort = 5000
 externalPort = 80
 
 [workflows]
-runButton = "Project"
+runButton = "Static Website"
 
 [[workflows.workflow]]
 name = "Project"
@@ -40,3 +44,11 @@ task = "packager.installForAll"
 task = "shell.exec"
 args = "npm run dev"
 waitForPort = 5000
+
+[[workflows.workflow]]
+name = "Static Website"
+author = 24338804
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npx http-server -p 3000"
