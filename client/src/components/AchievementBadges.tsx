@@ -60,37 +60,41 @@ export function AchievementBadges() {
   };
 
   return (
-    <div className="mt-8">
-      <h3 className="text-2xl font-semibold mb-8 text-center">Achievements</h3>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {achievements.map((achievement) => (
-          <motion.div
-            key={achievement.id}
-            className="relative"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
+    <div className="py-16 bg-accent/5 rounded-xl">
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl font-bold text-center mb-8 bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+          Achievements
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          {achievements.map((achievement) => (
             <motion.div
-              className={`
-                cursor-pointer p-6 rounded-xl text-center
-                bg-gradient-to-br ${categoryColors[achievement.category]}
-                hover:shadow-lg transition-all duration-300
-                transform hover:-translate-y-1
-              `}
-              whileHover={{ scale: 1.05 }}
-              onClick={() => {
-                setSelectedAchievement(achievement);
-                triggerConfetti();
-              }}
+              key={achievement.id}
+              className="h-full"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
             >
-              <div className="bg-white/90 rounded-full p-4 mx-auto w-16 h-16 flex items-center justify-center mb-3">
-                {achievement.icon}
-              </div>
-              <h4 className="font-semibold text-white">{achievement.title}</h4>
+              <motion.div
+                className={`
+                  cursor-pointer p-6 rounded-xl text-center h-full
+                  bg-gradient-to-br ${categoryColors[achievement.category]}
+                  hover:shadow-lg transition-all duration-300
+                  transform hover:-translate-y-1
+                `}
+                whileHover={{ scale: 1.05 }}
+                onClick={() => {
+                  setSelectedAchievement(achievement);
+                  triggerConfetti();
+                }}
+              >
+                <div className="bg-white/90 rounded-full p-4 mx-auto w-16 h-16 flex items-center justify-center mb-4">
+                  {achievement.icon}
+                </div>
+                <h4 className="font-semibold text-white text-lg mb-2">{achievement.title}</h4>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        ))}
+          ))}
+        </div>
       </div>
 
       <AnimatePresence>
@@ -115,10 +119,10 @@ export function AchievementBadges() {
               `}>
                 {selectedAchievement.icon}
               </div>
-              <h3 className="text-xl font-bold text-center mb-2">{selectedAchievement.title}</h3>
-              <p className="text-gray-600 text-center">{selectedAchievement.description}</p>
+              <h3 className="text-xl font-bold text-center mb-4">{selectedAchievement.title}</h3>
+              <p className="text-muted-foreground text-center mb-6">{selectedAchievement.description}</p>
               <motion.button
-                className="mt-4 w-full py-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors"
+                className="w-full py-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors"
                 onClick={() => setSelectedAchievement(null)}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}

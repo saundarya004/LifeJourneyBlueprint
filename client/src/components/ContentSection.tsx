@@ -12,7 +12,6 @@ export function ContentSection() {
       icon: <Code className="h-6 w-6" />,
       content: "Senior Software Engineer specializing in Java, Python, AI models, and Low-Level Design (LLD). Currently pursuing Masters in Information Systems at University of Washington.",
       image: "/attached_assets/A_dynamic_female_Senior_Software_Engineer_with_sho.png",
-      extraContent: <AchievementBadges />,
     },
     {
       title: "Personal Interests",
@@ -77,7 +76,6 @@ export function ContentSection() {
                   transition={{ duration: 0.3 }}
                 />
               </AspectRatio>
-              {section.extraContent}
             </CardContent>
           </Card>
           {index < sections.length - 1 && (
@@ -85,6 +83,14 @@ export function ContentSection() {
           )}
         </motion.div>
       ))}
+
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: sections.length * 0.2 }}
+      >
+        <AchievementBadges />
+      </motion.div>
     </div>
   );
 }
