@@ -16,14 +16,14 @@ export function ContentSection() {
       title: "Personal Interests",
       icon: <Heart className="h-6 w-6" />,
       content: (
-        <div className="space-y-2">
-          <div className="flex items-center gap-2">
+        <span className="space-y-2 block">
+          <span className="flex items-center gap-2">
             <Music className="h-4 w-4" /> Singing
-          </div>
-          <div className="flex items-center gap-2">
+          </span>
+          <span className="flex items-center gap-2">
             <Dumbbell className="h-4 w-4" /> Fitness Enthusiast
-          </div>
-        </div>
+          </span>
+        </span>
       ),
       image: "/attached_assets/A_young_woman_with_shoulder-length_hair_singing_in.png",
     },
@@ -52,7 +52,7 @@ export function ContentSection() {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <p className="text-muted-foreground">{section.content}</p>
+              <div className="text-muted-foreground">{section.content}</div>
               <AspectRatio ratio={16 / 9} className="overflow-hidden rounded-lg">
                 <img
                   src={section.image}
